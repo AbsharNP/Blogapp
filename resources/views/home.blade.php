@@ -9,8 +9,10 @@
                 <!-- <li><a href="signup">Signup</a></li> -->
                 <li><a href="{{route('logout')}}">Logout</a></li>
                 <li><a href="contact">contact</a></li>
+                <li style="align-content: right;"><a href="mypost">MyPosts</a>  </li>
             </ul>
   </nav>
+  
 
 @endsection
 @section("content")

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogViewController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,11 +25,15 @@ Route::get('/home', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
+// Route::get('/mypost', function () {
+//     return view('mypost');
+// });
 
 
 
 Route::get('/viewpost', [BlogViewController::class, 'index'])->name('viewpost');
+Route::get('/mypost', [MyPostController::class, 'index'])->name('mypost');
+
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login.post');

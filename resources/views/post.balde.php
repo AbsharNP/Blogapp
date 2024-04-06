@@ -7,19 +7,21 @@
 </ul>
 @endsection
 @section("content")
-<div class="form-blog">
-<h3 >Your Blog</h3>
+{{-- <div class="form-blog"> --}}
+      <div class="post-container">
+<h3 >Posts</h3>
+     
+<div class="post">
        @foreach ($posts as $post)
-        <h4>{{ $post->title }}</h4>
-        <p>{{ $post->content }}</p>
-        <p>{{ $post->created_at }}</p>
-       @endforeach
-</div>      
-<!-- <div class="category-container">
-@foreach($categories as $category)
-<p><a href="">{{ $category->name }}</a></p>
+       <h4>{{ $post->title }}</h4>
+       <p>{{ $post->content }}</p>
+       <p style="text-align: right;">written by {{ $post->username }}</p>
 
-@endforeach
-</div>  -->
+</br><hr>
+      @endforeach
+</div>
+
+      
+</div>       
 @endsection
 
