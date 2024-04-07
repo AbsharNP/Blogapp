@@ -7,9 +7,9 @@
             <ul>
                 <li><a href="home">Home</a></li>
                 <!-- <li><a href="signup">Signup</a></li> -->
-                <li><a href="{{route('logout')}}">Logout</a></li>
                 <li><a href="contact">contact</a></li>
                 <li style="align-content: right;"><a href="mypost">MyPosts</a>  </li>
+                <li><a href="{{route('logout')}}">Logout</a></li>
             </ul>
   </nav>
   

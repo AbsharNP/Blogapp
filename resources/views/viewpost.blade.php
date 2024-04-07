@@ -2,7 +2,7 @@
 
 @section("nav")
 <ul>
-<li><a href="home">Home</a></li>
+<li><a href="{{url('home')}}">Home</a></li>
 
 </ul>
 @endsection
@@ -10,19 +10,19 @@
 {{-- <div class="form-blog"> --}}
       <div class="post-container">
 <h3 >Posts</h3>
-       {{-- @foreach ($blogs as $blog)
-        <h4>{{ $blog->title }}</h4>
-        <p>{{ $blog->content }}</p>
-       @endforeach --}}
+@foreach ($posts as $post)
 <div class="post">
-       @foreach ($posts as $post)
+       
+       <a href="{{url('post',$post->id)}}"><img width="200" src="/postimage/{{$post->image}}"></a>
        <h4>{{ $post->title }}</h4>
        <p>{{ $post->content }}</p>
-       <p style="text-align: right;">written by {{ $post->username }}</p>
+       <p style="text-align: left;">Author {{ $post->username }}</p>
+       <p style="text-align: right; " >created at:{{ $post->created_at }}</p>
 
 </br><hr>
-      @endforeach
+      
 </div>
+@endforeach
 
       {{-- @foreach ($categories as $category)
        <h4>{{ $category->name }}</h4>

@@ -2,20 +2,21 @@
 @section("title","blog")
 @section("nav")
 <ul>
-<li><a href="home">Home</a></li>
+<li><a href="{{url('home')}}">Home</a></li>
 
 </ul>
 @endsection
 @section("content")
-@if(@session()->has('message'))
 
-<div class="alert alert-success" >
-  <button type="button" onclick="window.location.href='addpost';" class="close" data-dissmiss="alert" aria-hidden="true">x</button>
-
-</div>
-{{session()->get('message')}}
-@endif
 <div class="form-blog">
+        @if(@session()->has('message'))
+
+        <div class="alert alert-success" >
+          <button type="button" onclick="window.location.href='addpost';" class="close" data-dissmiss="alert" aria-hidden="true">x</button>
+        
+        </div>
+        {{session()->get('message')}}
+        @endif
         <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Enter your Blog</h3>
         <form method="POST" action="{{url('add_post')}}" enctype="multipart/form-data">
                 @csrf 

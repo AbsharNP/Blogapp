@@ -2,7 +2,7 @@
 @section("title","contact")
 @section("nav")
             <ul>
-                <!-- <li><a href="home">Home</a></li> -->
+                
                 <li><a href="signup">Signup</a></li>
                 <li><a href="login">Login</a></li>
             </ul>
