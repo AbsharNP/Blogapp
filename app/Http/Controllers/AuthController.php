@@ -48,7 +48,12 @@ class AuthController extends Controller
                 'user_email' => $user->email,
                
             ]);
+<<<<<<< HEAD
             return redirect('home');        }
+=======
+            return view('home');
+        }
+>>>>>>> 8978479fc5ed9e1c13e07759ccd0e4d58671211f
         return redirect(route('login'))->with('error','Invalid Email or Password!');
     }
         
