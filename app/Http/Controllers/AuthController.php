@@ -7,6 +7,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session as FacadesSession;
 
 
@@ -35,8 +36,19 @@ class AuthController extends Controller
         
         if(Auth::attempt($credentials))
         {
-            return redirect()->intended(route('home'));
-        }
+
+            $user = Auth::user();
+            $userName = $user->name;
+            Log::info('logged in  user',[$userName]);
+
+            
+            session([
+                'user_id' => $user->id,
+                'user_name' => $user->name,
+                'user_email' => $user->email,
+               
+            ]);
+            return redirect('home');        }
         return redirect(route('login'))->with('error','Invalid Email or Password!');
     }
         

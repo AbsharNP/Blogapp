@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogViewController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MyPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,9 @@ Route::get('/', function () {
 //     return view('blogwrite');
 // });
 
-// Route::get('/home', function () {
-//     return view('home');
-// })-> name('home');
+Route::get('/home', function () {
+    return view('home');
+})-> name('home');
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -57,6 +58,9 @@ Route::get('/addpost', [PostController::class, 'addpostpage']);
 Route::post('/add_post', [PostController::class, 'add_post']);
 
 Route::get('/post/{id}', [PostController::class, 'show']);
+
+Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
+
 
 
 

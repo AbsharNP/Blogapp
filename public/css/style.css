@@ -13,7 +13,7 @@ header, footer {
     text-align: center;
 }
 
-nav ul {
+/* nav ul {
     list-style: none;
     display: flex; 
     
@@ -28,7 +28,7 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-}
+} */
 
 main {
     padding: 15px;
@@ -63,3 +63,40 @@ p {
 .contact-link:hover {
     text-decoration: underline;
 }
+
+
+/* Styles for the navigation list */
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.nav-list li {
+    margin-right: 10px;
+}
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Custom class to reduce image size */
+.img-small {
+    width: 24px;
+    height: auto;
+}
+
+/* Additional styling to align items */
+nav {
+    padding: 10px;
+    /* background-color: #007bff; Adjust as necessary */
+}
+
+nav .list-inline {
+    margin: 0;
+}
+
