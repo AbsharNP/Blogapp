@@ -46,12 +46,10 @@
        <a href="{{url('post',$post->id)}}"><img width="200" src="/postimage/{{$post->image}}"></a>
        <h4>{{ $post->title }}</h4>
        <p>{{ $post->content }}</p>
-<<<<<<< HEAD
+
 
        <p style="text-align: left;">Author {{ $post->username }}</p>
-=======
        <p style="text-align: left;">Author: {{ $post->username }}</p>
->>>>>>> 8978479fc5ed9e1c13e07759ccd0e4d58671211f
        <p style="text-align: right; " >created at:{{ $post->created_at }}</p>
 
 

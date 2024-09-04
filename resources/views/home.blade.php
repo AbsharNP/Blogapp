@@ -34,16 +34,9 @@
     <p>@lang('messages.welcome') to our vibrant community where creativity and connection thrive!</p>
     <p>Dive into a world of inspiration and innovation, tailored just for you...</p>
     <p>Create your own blog</p>
-<<<<<<< HEAD
-=======
-    <button onclick="window.location.href='addpost';" class="price">add post</button></br></br>
-    <button onclick="window.location.href='viewpost';" class="price">read post</button>
 
+    
 
-    <h1>session data</h1>
-    <p>ID: {{session('user_id')}}</p>
-    <p>name: {{session('user_name')}}</p>
->>>>>>> 8978479fc5ed9e1c13e07759ccd0e4d58671211f
     
     <button onclick="window.location.href='{{ url('addpost') }}';" class="price">@lang('messages.add') @lang('messages.post')</button></br></br>
     <button onclick="window.location.href='{{ url('viewpost') }}';" class="price">@lang('messages.read') @lang('messages.post')</button>
@@ -53,10 +46,6 @@
     <p>Name: {{ session('user_name') }}</p>
     <br/>
 </div>
-<<<<<<< HEAD
-=======
-    
->>>>>>> 8978479fc5ed9e1c13e07759ccd0e4d58671211f
 @endsection
 
 
