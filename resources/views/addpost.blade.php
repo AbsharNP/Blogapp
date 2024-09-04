@@ -7,7 +7,12 @@
 </ul>
 @endsection
 @section("content")
-
+@if(session()->has('error'))
+        <div class="alert alert-danger">
+            <button type="button" onclick="window.location.href='addpost';" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{ session()->get('error') }}
+        </div>
+    @endif
 <div class="form-blog">
         @if(@session()->has('message'))
 

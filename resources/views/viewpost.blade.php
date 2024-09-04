@@ -7,7 +7,17 @@
 </ul>
 @endsection
 @section("content")
-{{-- <div class="form-blog"> --}}
+
+
+@if(session()->has('message'))
+<div class="alert alert-success" id="success-message">
+    {{-- <button type="button" onclick="window.location.href='addpost';" class="close" data-dismiss="alert" aria-hidden="true">x</button> --}}
+    {{ session()->get('message') }}
+</div>
+@endif
+
+
+
       <div class="post-container">
 <h3 >Posts</h3>
 @foreach ($posts as $post)
@@ -16,7 +26,7 @@
        <a href="{{url('post',$post->id)}}"><img width="200" src="/postimage/{{$post->image}}"></a>
        <h4>{{ $post->title }}</h4>
        <p>{{ $post->content }}</p>
-       <p style="text-align: left;">Author {{ $post->username }}</p>
+       <p style="text-align: left;">Author: {{ $post->username }}</p>
        <p style="text-align: right; " >created at:{{ $post->created_at }}</p>
 
 </br><hr>
@@ -30,4 +40,13 @@
       @endforeach --}}
 </div>       
 @endsection
+
+<script>
+      setTimeout(function() {
+          var successMessage = document.getElementById('success-message');
+          if (successMessage) {
+              successMessage.style.display = 'none';
+          }
+      }, 2000);
+  </script>
 

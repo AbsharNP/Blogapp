@@ -26,10 +26,14 @@
     <p>Create your own blog</p>
     <button onclick="window.location.href='addpost';" class="price">add post</button></br></br>
     <button onclick="window.location.href='viewpost';" class="price">read post</button>
+
+
+    <h1>session data</h1>
+    <p>ID: {{session('user_id')}}</p>
+    <p>name: {{session('user_name')}}</p>
     
     <br/>
 
 </div>
     
-    {{-- @include("include.later") --}}
 @endsection
