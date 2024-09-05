@@ -8,6 +8,7 @@ return [
     'read' => 'Lire',
     'welcome' => 'Bienvenue',
     'my' => 'Mon',
+    'author' => 'Auteur',
 ];
 
 ?>

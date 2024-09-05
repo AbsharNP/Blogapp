@@ -39,7 +39,7 @@
 
 
       <div class="post-container">
-<h3 >Posts</h3>
+<h3 >@lang('messages.post')</h3>
 @foreach ($posts as $post)
 <div class="post">
        
@@ -48,8 +48,8 @@
        <p>{{ $post->content }}</p>
 
 
-       <p style="text-align: left;">Author {{ $post->username }}</p>
-       <p style="text-align: left;">Author: {{ $post->username }}</p>
+       <p style="text-align: left;">@lang('messages.author') :{{ $post->username }}</p>
+       {{-- <p style="text-align: left;">Author: {{ $post->username }}</p> --}}
        <p style="text-align: right; " >created at:{{ $post->created_at }}</p>
 
 
