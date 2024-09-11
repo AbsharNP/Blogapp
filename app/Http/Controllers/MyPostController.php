@@ -3,23 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\post;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class MyPostController extends Controller
 {
+
+    
+
     public function index()
     {
-        $posts = Post::where('username', Auth::user()->name)->latest()->get();
-
-        return view('mypost', compact( 'posts'));
-        
+        if (Auth::check()) {
+            $posts = Post::where('username', Auth::user()->name)->latest()->get();
+            return view('mypost', compact('posts'));
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     public function edit_post($id){
 
-        $post=Post::find($id);
-        return view('editpost',compact('post'));
+        if (Gate::allows('edit-post', $id)) {
+            $post = Post::find($id);
+            return view('editpost', compact('post'));
+        }
+    
+        return redirect()->back()->with('error', 'Unauthorized action.');
+
+        // abort(403, 'Unauthorized action.');
 
     }
 

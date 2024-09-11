@@ -92,4 +92,24 @@ class PostControllerTest extends TestCase
         $response->assertRedirect('addpost');
         $response->assertSessionHas('error', 'An error occurred while adding the post. Please try again.');
     }
+
+    public function testIndex()
+    {
+        
+    $post1 = Post::factory()->create();
+    $post2 = Post::factory()->create();
+
+    $response = $this->get(route('viewpost'));  
+
+   
+    $response->assertStatus(200);
+
+    
+    $response->assertViewIs('viewpost');
+
+    
+    $response->assertViewHas('posts', function ($posts) use ($post1, $post2) {
+        return $posts->contains($post1) && $posts->contains($post2);
+    });
+    }
 }

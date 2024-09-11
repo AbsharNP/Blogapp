@@ -54,8 +54,15 @@ class PostController extends Controller
            
             return redirect('addpost')->with('error', 'An error occurred while adding the post. Please try again.');
         }
-    }
 
+        
+    }
+    public function index()
+    {
+        
+        $posts = Post::latest()->get();
+        return view('viewpost', compact('posts'));
+    }
 
    
 

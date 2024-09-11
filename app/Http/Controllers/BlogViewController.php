@@ -21,7 +21,7 @@ class BlogViewController extends Controller
     
         return view('viewpost', compact('blogs' , 'posts'));
     }
-
+ 
     
    
 

@@ -27,7 +27,11 @@
   
 @endsection
 @section("content")
-
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
       <div class="post-container">
 <h3 >My Posts</h3>
 @foreach ($posts as $post)

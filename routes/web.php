@@ -13,36 +13,13 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
-// Route::get('/blogwrite', function () {
-//     return view('blogwrite');
-// });
 
 Route::get('/home', function () {
     return view('home');
 })-> name('home');
 Route::get('/contact', function () {
     return view('contact');
-});
-// Route::get('/mypost', function () {
-//     return view('mypost');
-// });
-
-Route::get('/home',[HomeController::class ,'home']);
-Route::get('/mypost',[HomeController::class ,'mypost']);
-Route::get('/viewpost',[HomeController::class ,'viewpost']);
-
-Route::get('/viewpost', [BlogViewController::class, 'index'])->name('viewpost');
-Route::get('/mypost', [MyPostController::class, 'index'])->name('mypost');
-
-
-Route::get('/edit_post/{id}', [MyPostController::class, 'edit_post']);
-Route::post('/update_post/{id}', [MyPostController::class, 'update_post']);
-
-Route::get('/delete/{id}', [MyPostController::class, 'remove']);
+})->middleware('auth');
 
 
 
@@ -54,6 +31,23 @@ Route::post('/signup', [AuthController::class, 'signupPost'])->name('signup.post
 
 Route::get('/logout', [AuthController::class, 'logout'])->name( 'logout');
 
+Route::get('/home',[HomeController::class ,'home'])->middleware('auth');
+Route::get('/mypost',[HomeController::class ,'mypost'])->middleware('auth');
+Route::get('/viewpost',[HomeController::class ,'viewpost']);
+
+Route::get('/viewpost', [PostController::class, 'index'])->name('viewpost');
+Route::get('/mypost', [MyPostController::class, 'index'])->name('mypost');
+
+
+Route::get('/edit_post/{id}', [MyPostController::class, 'edit_post']);
+Route::post('/update_post/{id}', [MyPostController::class, 'update_post']);
+
+Route::get('/delete/{id}', [MyPostController::class, 'remove']);
+
+
+
+
+
 Route::get('/addpost', [PostController::class, 'addpostpage']);
 Route::post('/add_post', [PostController::class, 'add_post']);
 
@@ -61,6 +55,17 @@ Route::get('/post/{id}', [PostController::class, 'show']);
 
 Route::get('/locale/{locale}', [LocaleController::class, 'switch'])->name('locale.switch');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    })-> name('home');
+
+    
+    Route::get('/contact', function () {
+        return view('contact');
+    });
+    
+});
 
 
 
